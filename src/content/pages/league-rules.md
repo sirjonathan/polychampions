@@ -21,7 +21,7 @@ slug: league-rules
 
 1.8 Stay honest and be respectful of others, including using preferred pronouns or their name.
 
-1.9 Limit league-related memes and trash talking to ⁠⁠team-propaganda.
+1.9 Limit league-related memes and trash talking to #⁠⁠team-propaganda.
 
 1.10 Alt accounts are not allowed. If you lose access to an old account and have made a new one, please let Mods know.
 
@@ -31,7 +31,7 @@ slug: league-rules
 
 ## 2.0 General Game Rules
 
-The following rules apply to all games played in the PolyChampions server, unless otherwise specified
+The following rules apply to all games played in the PolyChampions server, unless otherwise specified.
 
 ### 2.1 Game Setup and Win Condition
 **Game Settings.** Default settings for all Polychampions games are:
@@ -40,13 +40,18 @@ The following rules apply to all games played in the PolyChampions server, unles
 - 24-hour timer
 - Size large (324 tiles) for 2v2s and huge (400 tiles) for 3v3s
 - Game host chooses any map type except Waterworld
-- All players on the current stable (non-beta) version of Polytopia (unless otherwise specified in section 3 for season games)
+
+**Game version.** Players must use the current stable release of Polytopia, with two exceptions:
+1. **Season games:** If section 3 specifies a different version, players must use that version instead.
+2. **Beta versions:** In any game, players may use a beta version. However, you may be required to forfeit the game if the beta affects gameplay unfarly.
 
 **Alternative settings.** For non-season games, players may use other game settings if all players agree, or if the game host so specifies in the game notes. For season games, see section 3.7.
 
 **Game setup and start.** By default, players should be invited in the order given by PolyELO bot; players within the same team may switch positions if they wish. Each ranked game must correspond to a single Polytopia game in the Elo bot. Before the game begins, if requested, any Steam or Epic player must switch to mobile, find a substitute plater, or forfeit the game.
 
 **Game end.** A team or player wins the game if they capture all human-controlled capitals. Use the *$win* command to log a win in the bot. Players are encouraged to post the replay link once the game is over.
+
+**Replays.** Winners of season games must ensure their replays are posted to #season-replays upon completion. Players may post non-season games to #replays at their discretion.
 
 ### 2.2 Cheating and Glitches
 
@@ -55,7 +60,8 @@ Cheating is forbidden. Cheating includes:
 - Knowingly using game glitches, bugs, or exploits to your advantage (e.g., turn resetting, ruin doubling), whether or not you intentionally caused the glitch/bug/exploit
 - Using out-of-game tools to acquire game information not available through normal play (e.g., ruin prediction tools or other use of the game seed)
 - Using always-on automated programs or macros to monitor the game state
-- Elo manipulation (e.g., throwing games, bo3, double or nothing)
+- Elo manipulation, including skewing of odds (best of 3, double or nothing, etc) or intentional loss (intentionally losing a game to benefit the opponent, resigning with the intent of gifting Elo, exchanging Elo for FATs or other resources, etc)
+- Intentional losses to benefit season standings
 - Espionage (e.g., illicitly obtaining opponents' screenshots or other information)
 - Any other method of gaining an unfair advantage, as determined by mods
 
@@ -72,27 +78,39 @@ All glitches that affect gameplay must be reported immediately to staff. Failure
 
 ### 2.3 Kicking, Skipping & Timing Out
 
-Players may not skip or kick others from the game except in the circumstances specified below. 
-**First timeout**: A mandatory grace period of 12 hours is then given after the first timeout is logged. A player may be skipped after the 12h grace period if they are still timed out. This skip is counted as a first timeout. 
-**Two or more timeouts**: If a team has already had at least one logged timeout against them, any player on that team may be skipped immediately upon logging a subsequent timeout
-**Three or more timeouts**: If a team has previously had at least two logged timeouts against them, and if any player on that team has previously been skipped, any player on that team may be kicked immediately after a third or subsequent timeout is logged. 
+Players may not skip or kick except as permitted below.
 
-Maximum one timeout per player per turn, regardless of extensions or grace periods.
+**Available time.** Players have 24 hours to complete each of their turns, plus 24 hours for each extension used on that player's turn.
 
-### 2.3.1 Definitions
+**Extensions.** Each team may use up to three extensions per game, plus the first timeout automatic extension (see below).
 
-**Timed out** - A player is timed out if they have taken more than their allotted time to complete their turn (normally 24 hours unless otherwise agreed upon, plus 24 hours per extension used). 
-**Logged timeout** - A timeout is logged against a player when all players have been notified via *$ping* with a screenshot of the game and/or game info screen that shows the player in question is timed out.
+- Using an extension adds 24 hours to the active player's available time.
+- Extensions may be stacked on a single turn or used on separate turns.
+- An extension is effective when all players are notified via *$ping* that the active player is using it.
+- Extensions may not be used while the player is timed out, if a timeout has already been logged for that turn. This does not apply to the automatic extension.
 
-### 2.3.2 24 Hour Turn Extensions
+**When players are timed out.** A player is timed out if they have not completed their turn within their available time.
 
-Asking for an extension adds 24 hours to a player's alloted time to complete a turn. Extensions can be stacked on a single turn or used on separate turns. Each team may use up to three extensions per game. To use an extension, the player or a teammate must notify all players via *$ping* before a timeout is logged. Extensions may be used during a grace period after a timeout is logged. 
+**First timeout automatic extension.** The first time a timeout is logged against a team, an additional free 24-hour extension is automatically used. The extension is effective when the triggering log is made.
 
-### 2.3.3 Leniency
+**Logged timeout.** A timeout is logged against a player when all players have been notified via *$ping* with a screenshot of the game and/or game info screen that shows the player in question is timed out.
 
-Teams that want to relax these skip/kick rules must agree to terms in an accord through pings. Timeout leniency is revocable by either side, given notice of a full turn (not including the current one). If there is no clear communication agreeing to be more lenient with timeouts, the above timeout rules should be followed.
+- A log is valid if the player had exceeded their available time when the *$ping* was made.
+- A logged timeout remains valid even if the player subsequently ceases to be timed out (i.e., due to the automatic extension).
+- Timeouts logged against a team's players count toward that team's total for that game.
+- Only the first valid log against a player for their turn counts toward the team's total. Later logs for that player on the same turn may authorize a skip or kick, but do not increase the total.
 
-### 2.3.4 Skip/kick shaming
+**When skips are authorized.** A skip is permitted only against a player who is currently timed out, following a $ping showing the player has exceeded their full available time on their turn.
+
+**When kicks are authorized.** A kick is permitted only if (a) the player could otherwise be skipped, (b) their team's timeout count is at least two prior to the player's turn, and (c) a player on their team has been previously skipped.
+
+*Example.* In a game with a 24-hour turn timer, a player on a team with no prior logged timeout begins their turn at hour 0. At hour 26, an opponent $pings a screenshot showing the player timed out. This logs the timeout and triggers the team's automatic extension, making the player's available time 48 hours, with 22 hours remaining. At hour 48, if the player has still not completed their turn, and their side has not used a manual extension, a $ping with a screenshot showing 2 days elapsed authorizes a skip. 
+
+### 2.3.1 Leniency
+
+Teams that want to relax these skip/kick rules must agree to terms in an accord through pings. Timeout leniency is revocable by either side, given notice of a full turn (not including the current one). If there is no clear communication agreeing to be more lenient with timeouts, the above timeout rules should be followed. 
+
+### 2.3.2 Skip/kick shaming
 
 Skip/kick shaming is prohibited and may be punished by FAT fines.
 
@@ -102,7 +120,9 @@ Every team has 1 elective restart per game. If a team wants to use their restart
 
 **Restart Timeout Rule**: If host doesn't restart within 48 hours (with or without substitutions), the away side can choose to count it as a timeout. If there are substitutions, if the new player does not respond to a friend request within 24 hours, this can count as timeout against the team with the unresponsive player. A *$ping* notifying the sub that the friend request was sent will start the 24 hour clock ticking. For non-season games, players may modify restart rules by mutual agreement. 
 
-If a team accidentally selects tribes that are not permitted under the game's rules (e.g., more tribe points used than allowed, duplicate tribes), that side must $ping the game by the end of turn 0 and can restart the game without penalty. If the team fails to do so, mods will decide how the game may proceed.
+If a team accidentally selects tribes that are not permitted under the game's rules (e.g., more tribe points used than allowed, duplicate tribes), that side must *$ping* the game by the end of turn 0 and can restart the game without penalty. If the team fails to do so, mods will decide how the game may proceed.
+
+Restarts don't change any logged information (e.g., accords, extensions used).
 
 ### 2.4.1 Automatic restarts
 
@@ -134,15 +154,11 @@ Players may play up to one game per season on a team other than their own.  That
 
 ### 3.0.1 New Team creation
 
-Houses may form new teams out of their existing house if the house has fewer teams than tiers in the league. Mods must be notified of the new team at least 2 weeks before the start of a new season in order for the new team to compete in that season.
+Houses may form new teams using their existing players if the house has fewer teams than tiers in the league. Mods must be notified of the new team at least 2 weeks before the start of a season in order for the new team to compete in that season. New teams start in the lowest tier by default, though if requested could be started as high as Silver Tier if they provide a roster 4 weeks prior to season start.
 
 ### 3.0.2 New House creation
 
-Any league member may create a new house at any time. All that is needed is a logo and a minimum of 3 players. Mods must be notified of a new house at least 4 weeks before the start of a season in order for the new house to compete in that season. New houses will receive FATs equal to the current average number of FATs per house.
-
-The Tier Tribunal, composed of one rep per house, will determine tier placement of a new house, as high as Silver tier. 
-
-Tiers above the bottom tier that have greater than 7 teams in it get one extra demotion slot (max 3 demotion slots per tier). This will cause all tiers to gradually return to their original sizes.
+Any league member may create a new house at any time. All that is needed is a logo and a minimum of 3 players. New houses receive FATs equal to the current average number of FATs per house. Mods must be notified of a new house at least 4 weeks before the start of a season in order for the house's team(s) to compete in that season. The new house's team(s) start in a tier as high as Silver Tier, as determined by the Tier Tribunal.
 
 Players on a newly created house cannot trade back to their original house for 2 seasons without mod approval.
 
@@ -150,7 +166,11 @@ Players on a newly created house cannot trade back to their original house for 2
 
 House leadership must inform mods of a team dropping out/retiring at least 2 weeks before the start of a new season. FAT fines of up to 20% of that house's total may be given for notification of a team dropping out after the deadline. 
 
-### 3.0.3 Leadership roles
+### 3.0.4 Tier size
+
+Tiers above the bottom tier that have greater than 7 teams in it get one extra demotion slot (max 3 demotion slots per tier). This will cause all tiers to gradually return to their original sizes
+
+### 3.0.5 Leadership roles
 
 A **House Leader** is:
 - Essential and unique; one and only one per house
@@ -179,7 +199,7 @@ The hosting team must select dryland, lakes, pangea, continents, or archipelago 
 
 Each tribe costs a set number of points as specified below. Teams must select tribes whose total corresponding points do not exceed the maximum chosen by the away side within the range for that week. All players on a given side must select different tribes (no duplicates on a side).
 
-**v120 Season 22 Weekly Points Ranges**
+**v123 Season 23 Weekly Points Ranges**
 Away picks points within a range of: 
 Week 1 3v3: 8-12 (default 10)
 Week 2 2v2 (low): 4-6 (default 5)
@@ -187,16 +207,16 @@ Week 3 2v2 (high): 6-9 (default 7)
 
 See section 3.5 for fill date deadline rules
 
-Teams may downsize their 3v3 games to 2v2 if both sides agree. Team leaders should send a modmail specifying how many games to downsize or if they have specific teams that they want to keep as 3v3 games.
+Teams may downsize their 3v3 games to 2v2 if both sides agree. Downsized 2v2s are 2/3 of week 1, so 5-8 points. Team leaders should send a modmail specifying how many games to downsize or if they have specific teams that they want to keep as 3v3 games.
 
-All season 22 games should be played on v120
+All season 23 games should be played on v123
 
 WaterWorld maps are banned on all league games
 Polaris is banned on Archipelago and Continents 3v3 maps 
 
 ### 3.3 Tribe Tier List
 
-Review the #season-info channel on the discord for an up-to-date tier list of tribe point values
+Review the #season-info channel on the discord for an up-to-date tier list of tribe point values: https://discord.com/channels/447883341463814144/1326593750973153370
 
 ### 3.4 Mid-season departures
 
@@ -233,7 +253,7 @@ Lowest Tier: Best of 12 games between 4-13 teams (Tier size will vary). Game cou
 
 Teams may come to an agreement on a change for any of the following rules: 
 
-1. Timeouts - Per 2.3.3, teams may agree to leniency on timeout rules.
+1. Timeouts - Per 2.3.1, teams may agree to leniency on timeout rules.
 2. Different map - Teams may use the waterworld or continents map in season games if both sides agree to it.
 
 Any other changes to the rules are not allowed without mod approval via @ModMail. Timeout leniency is revocable by either side, given notice of a full turn (not including the current one). (For example, $ping during t20 that you want to allow kicks, and from t22 onwards kicks are allowed)
@@ -304,7 +324,7 @@ Each time a valid raise is placed the timer for accepting new bids resets to 24 
 
 The bid may also include why the team thinks the free agent should join them. For example: "I want @Player A to join the Lightning for 3 FATs. I believe she would be a good fit because she likes memes about thunder." 
 
-The FA will go to the highest bidding house at the end of the 24 hours.
+The FA will go to the highest bidding house at the end of the 24 hours. The minimum draft price for an FA with a single house pref is 5 FATs or all a house’s remaining FATs, whichever is lower.
 
 ### 3.12 FAT Refunds
 
@@ -356,5 +376,18 @@ At the start of each season, a committee of mods and Statisticians will update t
 
 ### 3.15 Prizes
 
-**First blood.** The first team in each tier to get a qualifying win of each season will get a First Blood shoutout in ⁠#league-updates. To qualify, the game can’t be a live game and can’t involve any skips or kicks before t10.
-**Winning your tier.** Players who competed in season games for the team that wins the tier will get the Season champion role, for example @S17 Champ and @S17 Gold Champ. In addition to roles, the team that won their tier may pick a new emoji to add to the server.
+**Winning your tier.** Players who competed in season games for the team that wins their tier will get the corresponding Season Champ role.
+In addition to roles, the team that won their tier may pick one or more new emotes to add to the server:
+
+- Plat Champ: 1 Legacy Emote and 2 regular emotes
+- Gold Champ: 2 regular emotes
+- Silver (and lower) Champ: 1 regular emote
+
+**Emote Replacement Policy:** Once the server is 90% full on emote slots (runway must be left for new teams/houses) then when an emote is awarded, it replaces a low-usage emote.  Emotes that are below minimum usage (varies by type) are pooled and the recipient of the new emote selects which low-usage emote their reward will be replacing.
+
+Regular Emotes: Given out for bullet, season, etc.  Regular emotes are kept active for a minimum of 1-year, after which they are subject to be replaced by new emotes if their usage in the bottom 25% of total emotes used.
+
+Legacy Emotes: Legacy Emotes stay active for minimum 3-years.  After that the emotes become available to be replaced if they have dropped into the bottom 10% usage.
+
+**First blood.** The first team in each tier to get a qualifying win of each season will get a First Blood shoutout in #⁠league-updates
+To qualify, the game can’t be a live game and can’t involve any skips or kicks before t10.
